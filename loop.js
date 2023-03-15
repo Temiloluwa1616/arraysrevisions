@@ -13,7 +13,7 @@ console.log( names[i] );
 
  
 
- let lengthsOfname = dwarves.map(function(item, index, array) {
+ let lengthsOfname = dwarves.map(function(item, index,) {
     return item.length
 
  });
@@ -64,7 +64,7 @@ var lengthOfLastWord = function(s) {
 }
 
 
-var sortArray = function(nums) {
+let sortArray = function(nums) {
    
  nums.sort((a, b) => a - b);
  
@@ -77,11 +77,11 @@ var sortArray = function(nums) {
 
 function reverseWords(s) {
    
-   const words = s.split(" ");
+   let words = s.split(" ");
    
-   const reversedWords = words.reverse();
+   let reversedWords = words.reverse();
   
-   const result = reversedWords.join(" ");
+   let result = reversedWords.join(" ");
    
    return result;
  }
