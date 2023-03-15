@@ -1,0 +1,23 @@
+#background{
+    height: 650px;
+    border: 2px solid black;
+    
+    
+}
+#PWE{
+    padding: 200px;
+    text-align: center;
+}
+button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    border: none;
+    border-radius: 5px ;
+}
+#increment-btn{
+    background-color: brown;
+}
