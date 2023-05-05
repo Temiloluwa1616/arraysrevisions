@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Page</title>
+</head>
+<body>
+    <nav id="navbar">
+      <a href="" class="nav-brand">App</a>
+      <ul>
+        <li class="nav-item"><a href="about.html">About us</a></li>
+        <li><a href="" class="nav-item btn btn-default">Register</a></li>
+      </ul>
+    </nav>
+
+    <div class="container" id="main">
+        <h1>Welcome to our app</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus,
+            voluptatem.
+        </p>
+
+        <form id="login-form" novalidate>
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" placeholder="Enter your email">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" placeholder="Enter your password">
+            <input type="submit" value="Login" id="submit-button" class="btn btn-default">
+        </form>
+
+        <p id="loadingItem"></p>
+    </div>
+
+    <footer id="footer-wrapper">
+        <a href="about.html" target="_blank">About us</a>
+        <a href="contact.html" target="_blank">Contact us</a>
+    </footer>
+    <script>
+        
+       const loginForm =  document.querySelector('#login-form')
+       loginForm.addEventListener('submit', (e)=> {
+               e.preventDefault()
+
+              const email = document.querySelector('#login-email').value
+              const password = document.querySelector('#login-password').value
+                if(email.indexOf('@') === -1){
+                    alert('Please enter a valid email')
+                }
+                if(password.length < 6){
+                    alert('Please enter a password with at least 6 characters')
+                }
+
+                document.querySelector('#loadingItem').textContent = "Logging in..."
+
+                setTimeout(() => {
+                    document.querySelector('#loadingItem').textContent = ""
+
+                }, 1500);
+               
+
+        
+        } )
+    </script>
+</body>
+</html>
+

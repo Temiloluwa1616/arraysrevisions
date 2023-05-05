@@ -1,0 +1,64 @@
+<script>
+    const form = document.querySelector('#conversion-form');
+    const urlField = document.querySelector('#url');
+    const resultField = document.querySelector('#url_response');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const url = urlField.value.trim();
+
+        if (!url) {
+            alert('Please enter a valid URL');
+            return;
+        }
+
+        fetch(`https://api.shrtco.de/v2/shorten?url=${encodeURIComponent(url)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    resultField.innerHTML = `<a href="${data.result.full_short_link}" target="_blank">${data.result.full_short_link}</a>`;
+                } else {
+                    resultField.textContent = `Error: ${data.error_code}`;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                resultField.textContent = 'An error occurred';
+            });
+    });
+</script>
+</body>
+</html>
+This code adds an event listener to the form's submit event, and sends a request to the shrtco.de API with the entered URL. If the API returns a successful response, the short URL is displayed in the url_response paragraph element. Otherwise, an error message is displayed.
+
+
+
+
+
+Regenerate response
+
+<!-- https://shrtco.de/docs -->
+
+<!-- <script>
+    const shortenButton = document.querySelector('#shorten-form');
+
+shortenButton.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const inputtedUrl = document.querySelector('#long-url').value;
+    if (inputtedUrl === '') {
+        alert('Please enter a URL');
+        return '';
+    }
+    fetch(`https://api.shrtco.de/v2/shorten?url=${inputtedUrl}`)
+        .then(response => response.json())
+        .then(data => {
+            const shortUrl = data.result.full_short_link;
+            document.querySelector('#short-url').value = shortUrl;
+        })
+        .catch(error => {
+            alert('An error occurred');
+            console.log(error);
+        });
+});
+
+</script> -->
